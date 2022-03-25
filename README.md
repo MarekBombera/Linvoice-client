@@ -1,3 +1,5 @@
+Linvoice - server -> https://github.com/MarekBombera/Linvoice-server/
+
 # Linvoice - client
 
 Linvoice is a full-stack SPA where users can create, update and delete invoices.
