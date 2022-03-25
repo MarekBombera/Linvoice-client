@@ -1,0 +1,195 @@
+@use '../base/breakpoints' as *;
+
+.createInvoice {
+	background: white;
+	padding: 1.5rem;
+	z-index: 5;
+
+	@include media('>=tablet') {
+		width: 80%;
+		margin: 0;
+		padding: 3rem;
+		border-radius: 0px 20px 20px 0px;
+	}
+
+	@include media('>=laptop') {
+		width: 50%;
+		overflow: scroll;
+		z-index: 1000;
+	}
+
+	&-heading {
+		margin: 1rem 0 2rem;
+		text-transform: capitalize;
+		font-size: 1.5rem;
+
+		@include media('>=tablet') {
+			margin: 0 0 3rem;
+		}
+
+		@include media('>=desktop') {
+			font-size: 1.5rem;
+		}
+	}
+
+	&-fieldset-heading {
+		font-weight: bold;
+		text-transform: capitalize;
+		font-size: 0.75rem;
+		letter-spacing: 0.015rem;
+		color: var(--violet);
+
+		@include media('>=desktop') {
+			font-size: 0.9rem;
+		}
+	}
+
+	&-fieldset-label {
+		text-transform: capitalize;
+		font-size: 0.75rem;
+		letter-spacing: 0.015rem;
+		color: var(--blue-lavender);
+
+		@include media('>=desktop') {
+			font-size: 0.9rem;
+		}
+	}
+
+	&__billFrom,
+	&__billTo {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1rem 2rem;
+		margin: 1.5rem 0;
+
+		@include media('>=tablet') {
+			grid-template-columns: repeat(12, 1fr);
+		}
+
+		@include media('>=desktop') {
+			gap: 1.25rem 2rem;
+			margin: 3rem 0;
+		}
+
+		h4 {
+			grid-column: 1 / -1;
+		}
+
+		&-streetAddress {
+			grid-column: 1 / -1;
+		}
+
+		&-city {
+			@include media('>=tablet') {
+				grid-column: 1 / 5;
+			}
+		}
+
+		&-postCode {
+			@include media('>=tablet') {
+				grid-column: 5/ 9;
+			}
+		}
+
+		&-country {
+			grid-column: 1 / -1;
+
+			@include media('>=tablet') {
+				grid-column: 9 / -1;
+			}
+		}
+
+		&-clientName {
+			grid-column: 1 / -1;
+		}
+
+		&-clientEmail {
+			grid-column: 1 / -1;
+		}
+
+		&-invoiceDate {
+			grid-column: 1 / -1;
+
+			@include media('>=tablet') {
+				grid-column: 1 / 7;
+			}
+		}
+
+		&-paymentTerms {
+			grid-column: 1 / -1;
+			@include media('>=tablet') {
+				grid-column: 7 / -1;
+			}
+
+			@include media('>=desktop') {
+				font-size: 0.9rem;
+			}
+		}
+
+		&-projectDescription {
+			grid-column: 1 / -1;
+		}
+	}
+	&__invoiceItemList {
+		grid-column: 1 / -1;
+	}
+
+	&__buttons {
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+		margin-top: 1.5rem;
+		gap: 1rem;
+
+		@include media('>=tablet') {
+			grid-column: 1 / 1;
+			justify-content: flex-end;
+		}
+
+		&-cancel {
+			display: flex;
+			justify-content: center;
+			padding: 1rem 1.5rem 0.9rem;
+			font-weight: bold;
+			font-size: 0.75rem;
+			letter-spacing: -0.02rem;
+			color: var(--blue-lavender);
+			background: var(--background-light);
+			border: none;
+			border-radius: 24px;
+
+			@include media('>=laptop') {
+				&:hover {
+					background: var(--blue-light);
+				}
+			}
+
+			@include media('>=desktop') {
+				font-size: 0.9rem;
+			}
+		}
+
+		&-submit {
+			display: flex;
+			justify-content: center;
+			padding: 1rem 1rem 0.9rem;
+			font-weight: bold;
+			font-size: 0.75rem;
+			letter-spacing: 0.02rem;
+			color: white;
+			background: #7c5dfa;
+			border: none;
+			border-radius: 24px;
+
+			@include media('>=laptop') {
+				&:hover {
+					background: var(--violet-light);
+				}
+			}
+
+			@include media('>=desktop') {
+				font-size: 0.9rem;
+			}
+		}
+	}
+}

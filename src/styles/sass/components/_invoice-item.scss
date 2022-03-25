@@ -1,0 +1,70 @@
+@use '../base/breakpoints' as *;
+
+.invoiceItem {
+	display: grid;
+	grid-template-columns: repeat(13, 1fr);
+	gap: 0.75rem 1rem;
+	margin-bottom: 2.5rem;
+
+	@include media('>=tablet') {
+		grid-template-columns: repeat(9, 1fr);
+		margin-bottom: 1rem;
+	}
+
+	&-name {
+		grid-column: 1 / -1;
+
+		@include media('>=tablet') {
+			grid-column: 1 / 4;
+		}
+	}
+
+	&-quantity {
+		grid-column: 1 / 4;
+
+		@include media('>=tablet') {
+			grid-column: 4 / 5;
+		}
+	}
+
+	&-price {
+		grid-column: 4/ 8;
+		@include media('>=tablet') {
+			grid-column: 5 / 7;
+		}
+	}
+
+	&-delete {
+		align-self: center;
+		margin-top: 1rem;
+
+		@include media('>=tablet') {
+			justify-self: center;
+		}
+
+		@include media('>=laptop') {
+			cursor: pointer;
+		}
+	}
+
+	&-total {
+		grid-column: 8/13;
+
+		@include media('>=tablet') {
+			grid-column: 7 / 9;
+		}
+
+		input {
+			padding-left: 0.25rem;
+			font-weight: bold;
+			font-size: 0.85rem;
+			letter-spacing: 0.02rem;
+			color: var(--blue-lavender);
+			border: none;
+
+			@include media('>=desktop') {
+				font-size: 1rem;
+			}
+		}
+	}
+}

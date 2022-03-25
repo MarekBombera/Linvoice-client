@@ -1,0 +1,45 @@
+@use '../base/breakpoints' as *;
+
+.editInvoice {
+	padding: 1.5rem;
+	background: white;
+
+	@include media('>=tablet') {
+		width: 80%;
+		margin: 0;
+		padding: 3rem;
+		border-radius: 0px 20px 20px 0px;
+	}
+
+	@include media('>=laptop') {
+		width: 50%;
+		overflow: scroll;
+	}
+
+	&-heading {
+		display: flex;
+		gap: 0.5rem;
+
+		@include media('>=tablet') {
+			margin-bottom: 2rem;
+		}
+
+		h2 {
+			margin: 1rem 0;
+			font-size: 1.5rem;
+			letter-spacing: -0.03rem;
+
+			@include media('>=tablet') {
+				margin: 0;
+			}
+		}
+
+		&-id {
+			text-transform: uppercase;
+
+			&-tag {
+				color: var(--blue-gray);
+			}
+		}
+	}
+}

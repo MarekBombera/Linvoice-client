@@ -1,0 +1,163 @@
+@use '../base/breakpoints' as *;
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 72px;
+	background: rgb(55, 59, 83);
+	z-index: 100;
+
+	@include media('>=tablet') {
+		height: 80px;
+	}
+
+	@include media('>=laptop') {
+		flex-direction: column;
+		width: 98px;
+		height: 100%;
+	}
+
+	@include media('>=desktop') {
+		width: 115px;
+	}
+
+	&__logo {
+		&-wrapper {
+			position: relative;
+			display: flex;
+			align-items: center;
+			height: 100%;
+			padding: 0 1.5rem;
+			background: var(--violet);
+			border-radius: 0px 20px 20px 0px;
+
+			@include media('>=laptop') {
+				align-items: center;
+				justify-content: center;
+				width: 98px;
+				height: 100px;
+				border-radius: 0px 0px 20px 20px;
+			}
+
+			@include media('>=desktop') {
+				width: 115px;
+				height: 130px;
+			}
+
+			img {
+				z-index: 2;
+
+				@include media('>=desktop') {
+					transform: scale(1.2);
+				}
+			}
+		}
+
+		&-decoration {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			z-index: 1;
+			height: 50%;
+			width: 100%;
+			background: var(--violet-light);
+			border-radius: 20px 0px 20px 0px;
+		}
+	}
+
+	&__user {
+		display: flex;
+		align-items: center;
+		height: 100%;
+		gap: 1rem;
+
+		@include media('>=laptop') {
+			flex-direction: column;
+			height: auto;
+			gap: 1.5rem;
+		}
+
+		&-signOut {
+			pointer-events: none;
+			opacity: 0;
+			transition: opacity 0.15s ease-in-out;
+
+			&--active {
+				pointer-events: auto;
+				opacity: 1;
+			}
+
+			button {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding: 1rem 1rem 0.9rem 1rem;
+				font-weight: bold;
+				font-size: 0.6rem;
+				letter-spacing: 0.02rem;
+				color: white;
+				background: var(--red-pink);
+				border: none;
+				border-radius: 24px;
+
+				@include media('>=laptop') {
+					padding: 1rem 0.75rem 0.9rem;
+					&:hover {
+						background: var(--red-pink-light);
+					}
+				}
+
+				@include media('>=desktop') {
+					padding: 1rem 0.9rem 0.9rem;
+					font-size: 0.7rem;
+				}
+			}
+		}
+
+		&-profilePic {
+			display: flex;
+			align-items: center;
+			padding: 0 1rem;
+			border-left: 1px solid rgb(73, 78, 110);
+			height: 100%;
+
+			@include media('>=tablet') {
+				padding: 0 1.25rem;
+			}
+
+			@include media('>=laptop') {
+				border-left: none;
+				border-top: 1px solid rgb(73, 78, 110);
+				padding: 2rem 1rem;
+				height: auto;
+				cursor: pointer;
+			}
+
+			@include media('>=desktop') {
+				padding: 2rem 1.25rem;
+			}
+
+			img {
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+
+				@include media('>=tablet') {
+					width: 54px;
+					height: 54px;
+				}
+
+				@include media('>=laptop') {
+					width: 64px;
+					height: 64px;
+				}
+
+				@include media('>=desktop') {
+					width: 75px;
+					height: 75px;
+				}
+			}
+		}
+	}
+}

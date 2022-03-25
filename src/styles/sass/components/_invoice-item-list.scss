@@ -1,0 +1,51 @@
+@use '../base/breakpoints' as *;
+
+.invoiceItemList {
+	display: grid;
+
+	&-heading {
+		margin: 1rem 0;
+		h2 {
+			font-weight: bold;
+			text-transform: capitalize;
+			font-size: 1.125rem;
+			letter-spacing: 0.02rem;
+			color: var(--blue-lavender);
+		}
+	}
+
+	&-newItem {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		@include media('>=tablet') {
+			padding: 0.5rem 0;
+			background: rgb(249, 250, 254);
+			border-radius: 24px;
+		}
+
+		@include media('>=laptop') {
+			&:hover {
+				cursor: pointer;
+				background: var(--blue-light);
+			}
+		}
+
+		@include media('>=desktop') {
+			margin-top: 1rem;
+		}
+
+		p {
+			font-weight: bold;
+			text-transform: capitalize;
+			font-size: 0.75rem;
+			letter-spacing: 0.02rem;
+			color: var(--blue-lavender);
+
+			@include media('>=desktop') {
+				font-size: 0.9rem;
+			}
+		}
+	}
+}

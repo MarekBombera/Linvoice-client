@@ -1,0 +1,150 @@
+@use '../base/breakpoints' as *;
+
+.InvoicePreview {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	margin: 1rem 1.5rem;
+	padding: 0.75rem 1.5rem;
+	background: white;
+	border-radius: 8px;
+
+	@include media('>=tablet') {
+		grid-template-columns: 0.75fr repeat(4, 1fr) 25px;
+		align-items: center;
+		margin: 1rem 3.5rem;
+		padding: 1rem;
+		box-shadow: 0 4px 10px -4px rgb(0, 0, 0, 0.1);
+	}
+
+	@include media('>=laptop') {
+		align-self: flex-start;
+		width: 800px;
+		padding: 1rem 2rem;
+		gap: 1.5rem;
+		cursor: pointer;
+
+		&:hover {
+			border: 1px solid var(--violet-light);
+		}
+	}
+
+	@include media('>=desktop') {
+		width: 1000px;
+	}
+
+	&-invoiceNumber {
+		display: flex;
+		align-items: center;
+		grid-column: 1/1;
+		grid-row: 1/1;
+
+		p {
+			font-weight: bold;
+			font-size: 0.75rem;
+			letter-spacing: 0.02rem;
+			color: var(--blue-lavender);
+
+			@include media('>=desktop') {
+				font-size: 0.9rem;
+			}
+		}
+
+		h4 {
+			text-transform: uppercase;
+			font-size: 0.75rem;
+			letter-spacing: 0.02rem;
+
+			@include media('>=desktop') {
+				font-size: 0.9rem;
+			}
+		}
+	}
+
+	&-date-price {
+		grid-column: 1/1;
+		grid-row: 2/2;
+
+		@include media('>=tablet') {
+			grid-column: 2/2;
+			grid-row: 1/1;
+			justify-self: center;
+		}
+
+		p {
+			font-size: 0.75rem;
+			letter-spacing: 0.02rem;
+			color: var(--blue-lavender);
+
+			@include media('>=desktop') {
+				font-size: 0.9rem;
+			}
+		}
+
+		h2 {
+			font-size: 0.9rem;
+			letter-spacing: 0.05rem;
+
+			@include media('>=tablet') {
+				display: none;
+			}
+		}
+	}
+
+	&-total {
+		display: none;
+		font-size: 0.9rem;
+		letter-spacing: 0.05rem;
+
+		@include media('>=tablet') {
+			display: block;
+			grid-column: 4/4;
+			grid-row: 1/1;
+			justify-self: center;
+		}
+
+		@include media('>=desktop') {
+			font-size: 1.1rem;
+		}
+	}
+
+	&-name {
+		grid-column: 2/2;
+		grid-row: 1/1;
+		justify-self: flex-end;
+		align-self: center;
+		font-size: 0.75rem;
+		letter-spacing: 0.02rem;
+		color: var(--blue-gray);
+
+		@include media('>=tablet') {
+			grid-column: 3/3;
+			justify-self: center;
+		}
+
+		@include media('>=desktop') {
+			font-size: 0.9rem;
+		}
+	}
+
+	&-status {
+		grid-column: 2/2;
+		grid-row: 2/2;
+		justify-self: flex-end;
+		align-self: center;
+
+		@include media('>=tablet') {
+			grid-column: 5/5;
+			grid-row: 1/1;
+			justify-self: center;
+		}
+	}
+
+	&-arrow {
+		display: none;
+		@include media('>=tablet') {
+			display: block;
+			grid-column: 6/6;
+			justify-self: flex-end;
+		}
+	}
+}

@@ -1,46 +1,61 @@
-# Getting Started with Create React App
+# Linvoice - client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Linvoice is a full-stack SPA where users can create, update and delete invoices.
 
-## Available Scripts
+## How to use the app
 
-In the project directory, you can run:
+- Log-in with your Google account
+- Create a new invoice
+- Click on the created invoice to view the whole invoice
+- Edit, delete or mark the invoice as paid
+- Filter invoices by their status
+- Click on the profile pic to log-out
 
-### `npm start`
+## Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Front-end: React, Redux, Typescript, Sass
+- Back-end: Node JS, Express, MySQL, Docker
+- Testing: Jest, React Testing Library
+- API: Google OAuth 2.0
+- Cloud: AWS (EC2, RDS)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## How app works
 
-### `npm test`
+### Client
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Google OAuth is handled on the client-side and the app is just using client profile pic and client id.
 
-### `npm run build`
+The client's id is then sent to the server where the server fetches all invoices from the database associated with the client's id and returns the results back to the client.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Forms are made with Formik, React-Date-Picker and inputs are validated with Yup.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Server
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The server basically just fetches the desired data from the database and sends it back to the client.
 
-### `npm run eject`
+The user's input and the whole post/patch request made from the client is validated to make sure nothing weird is being sent.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The server is using the Helmet package to help secure HTTP headers.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+All data passed to query the database is escaped to prevent SQL injection.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Cloud
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The server is dockerized and deployed to AWS - EC2.
 
-## Learn More
+MySQL database is also deployed in AWS - RDS.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Others
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The reason why I made an app for invoices was to learn mainly these few things.
+
+- How to handle forms with a lot of inputs and different input types
+- Back-end technologies like Express, SQL database, Docker
+- How to tie everything together to make a full-stack app
+
+While testing I encountered a Formik bug https://github.com/jaredpalmer/formik/issues/1543 that just spams the whole console even if tests are passing.
+
+I tried to stick with TDD as much as I could but at one point It became almost impossible and way too time-consuming to find an error with all that spam.
+
+The app is built mobile-first with TDD in mind.
+(although Formik made me stop writing tests and one point)

@@ -1,0 +1,34 @@
+:root {
+	--violet: rgba(124, 93, 250);
+	--violet-light: rgba(146, 119, 255);
+	--black-blue: rgba(12, 14, 22); //
+	--blue-extra-dark: rgba(20, 22, 37); //
+	--blue-very-dark: rgba(30, 33, 57); //
+	--blue-dark: rgba(37, 41, 69); //
+	--blue-light: rgba(223, 227, 250); //
+	--blue-lavender: rgba(126, 136, 195); //
+	--blue-gray: rgba(136, 142, 176);
+	--red-pink: rgba(236, 87, 87);
+	--red-pink-light: rgba(255, 151, 151);
+	--background-light: rgba(248, 248, 251);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+	font-family: 'Spartan', sans-serif;
+	font-weight: bold;
+	word-break: break-word;
+}
+
+p,
+button {
+	font-family: 'Spartan', sans-serif;
+	word-break: break-word;
+}
+
+label {
+	font-family: 'Spartan', sans-serif;
+}

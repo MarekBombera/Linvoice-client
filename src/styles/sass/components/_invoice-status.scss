@@ -1,0 +1,63 @@
+@use '../base/breakpoints' as *;
+
+.InvoiceStatus {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 104px;
+	height: 40px;
+	gap: 0.5rem;
+	border-radius: 6px;
+
+	@include media('>=desktop') {
+		width: 140px;
+		height: 50px;
+	}
+
+	&-bg {
+		&--paid {
+			background: rgba(51, 214, 159, 0.06);
+		}
+
+		&--pending {
+			background: rgba(255, 143, 0, 0.06);
+		}
+	}
+
+	&-dot {
+		width: 8px;
+		height: 8px;
+		border-radius: 50%;
+
+		&--paid {
+			background: rgba(51, 214, 159);
+		}
+
+		&--pending {
+			background: rgba(255, 143, 0);
+		}
+	}
+
+	&-text {
+		text-transform: capitalize;
+		font-weight: bold;
+		font-size: 0.75rem;
+		letter-spacing: 0.02rem;
+
+		@include media('>=desktop') {
+			font-size: 0.9rem;
+		}
+
+		h5 {
+			color: rgba(51, 214, 159);
+		}
+
+		&--paid {
+			color: rgba(51, 214, 159);
+		}
+
+		&--pending {
+			color: rgba(255, 143, 0);
+		}
+	}
+}

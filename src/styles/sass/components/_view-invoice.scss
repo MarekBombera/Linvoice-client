@@ -1,0 +1,440 @@
+@use '../base/breakpoints' as *;
+
+.ViewInvoice {
+	display: grid;
+	padding: 1.5rem 1.25rem 0;
+	background: #f8f8fb;
+
+	@include media('>=tablet') {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		padding: 2rem 2.5rem;
+	}
+
+	@include media('>=laptop') {
+		grid-template-rows: 90px 80px 1fr;
+		justify-self: center;
+		width: 55%;
+		padding: 0;
+		margin: 0 0 2rem;
+		column-gap: 2rem;
+		background: none;
+	}
+
+	@include media('>=desktop') {
+		grid-template-rows: 90px 95px 1fr;
+		width: 900px;
+		margin: 0.5rem 8rem 2.5rem 0;
+	}
+
+	&__undefined {
+		.ViewInvoice-tag {
+			margin: 0 0 0.25rem;
+		}
+	}
+
+	&-tag {
+		margin: 0;
+		text-transform: capitalize;
+		font-weight: normal;
+		font-size: 0.75rem;
+		letter-spacing: -0.02rem;
+		color: var(--blue-lavender);
+
+		@include media('>=desktop') {
+			font-size: 0.9rem;
+		}
+	}
+
+	&__status {
+		display: flex;
+		justify-content: space-between;
+		background: white;
+		margin-top: 1rem;
+		padding: 1rem 1.25rem;
+		border-radius: 8px;
+
+		@include media('>=tablet') {
+			grid-column: 1/1;
+			grid-row: 2/2;
+			justify-content: flex-start;
+			align-items: center;
+			margin-top: 1rem;
+			padding: 1rem 1.75rem;
+			gap: 1.25rem;
+			border-radius: 8px 0 0 8px;
+			box-shadow: -5px 5px 15px -10px rgb(0, 0, 0, 0.15);
+		}
+
+		@include media('>=laptop') {
+			height: 80px;
+			margin: 0;
+			padding: 1.25rem 3rem;
+			border-radius: 8px;
+			box-shadow: 0 6px 15px 0px rgb(0, 0, 0, 0.15);
+		}
+
+		@include media('>=desktop') {
+			height: 90px;
+			padding: 3rem;
+		}
+
+		&-tag {
+			font-size: 0.75rem;
+			letter-spacing: -0.02rem;
+			color: var(--blue-gray);
+
+			@include media('>=desktop') {
+				font-size: 0.9rem;
+			}
+		}
+	}
+
+	&__info {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		padding: 1.25rem;
+		margin-top: 1rem;
+		row-gap: 1.5rem;
+		background: white;
+		box-shadow: 0 8px 10px -5px rgba(7, 0, 36, 0.05);
+		border-radius: 8px;
+
+		@include media('>=tablet') {
+			grid-column: 1/ -1;
+			grid-template-columns: repeat(3, 1fr) 0.75fr;
+			padding: 1.75rem;
+			column-gap: 3rem;
+			row-gap: 0.5rem;
+			box-shadow: 0 6px 20px -5px rgb(0, 0, 0, 0.2);
+		}
+
+		@include media('>=laptop') {
+			margin: 2rem 0 0 0;
+			padding: 3rem;
+		}
+	}
+
+	&__general {
+		grid-column: 1/-1;
+		grid-row: 1/1;
+
+		&-invoiceNumber {
+			display: flex;
+			align-items: center;
+			p {
+				margin: 0;
+				font-weight: bold;
+				font-size: 0.75rem;
+				letter-spacing: -0.02rem;
+				color: var(--blue-lavender);
+				@include media('>=tablet') {
+					font-size: 0.9rem;
+				}
+				@include media('>=desktop') {
+					font-size: 1.1rem;
+				}
+			}
+
+			h4 {
+				text-transform: uppercase;
+				margin: 0;
+				font-size: 0.75rem;
+				letter-spacing: -0.015rem;
+
+				@include media('>=tablet') {
+					font-size: 0.9rem;
+				}
+				@include media('>=desktop') {
+					font-size: 1.1rem;
+				}
+			}
+		}
+		&-description {
+			p {
+				margin: 0.25rem 0;
+				font-size: 0.75rem;
+				letter-spacing: -0.02rem;
+				color: var(--blue-lavender);
+
+				@include media('>=desktop') {
+					font-size: 0.9rem;
+				}
+			}
+		}
+	}
+
+	&__date-paymentDue-wrapper {
+		display: grid;
+		grid-column: 1/1;
+		grid-row: 3/3;
+		gap: 0.5rem;
+	}
+
+	&__date {
+		h4 {
+			font-size: 0.9375rem;
+			letter-spacing: -0.02rem;
+			margin: 1rem 0;
+
+			@include media('>=tablet') {
+				font-size: 0.9rem;
+			}
+			@include media('>=desktop') {
+				font-size: 1rem;
+			}
+		}
+	}
+	&__paymentDue {
+		h4 {
+			font-size: 0.9375rem;
+			letter-spacing: -0.02rem;
+			margin: 1rem 0;
+			@include media('>=tablet') {
+				font-size: 0.9rem;
+			}
+			@include media('>=desktop') {
+				font-size: 1rem;
+			}
+		}
+	}
+
+	&__billTo {
+		grid-column: 2/2;
+		grid-row: 3/3;
+
+		p {
+			margin: 0.4rem 0;
+			font-size: 0.7rem;
+			letter-spacing: -0.014rem;
+			color: var(--blue-lavender);
+			@include media('>=desktop') {
+				font-size: 0.85rem;
+			}
+		}
+		h4 {
+			margin: 1.1rem 0 0.5rem;
+			font-size: 0.9375rem;
+			letter-spacing: -0.02rem;
+			@include media('>=tablet') {
+				font-size: 0.9rem;
+			}
+
+			@include media('>=desktop') {
+				font-size: 1rem;
+			}
+		}
+	}
+
+	&__billFrom {
+		grid-column: 1/-1;
+		grid-row: 2/2;
+
+		@include media('>=tablet') {
+			grid-column: 4/-1;
+			grid-row: 1/1;
+			text-align: right;
+		}
+
+		@include media('>=laptop') {
+			margin-bottom: 0.5rem;
+		}
+
+		p {
+			margin: 0.4rem 0;
+			font-size: 0.7rem;
+			letter-spacing: -0.014rem;
+			color: var(--blue-lavender);
+			@include media('>=desktop') {
+				font-size: 0.8rem;
+			}
+		}
+	}
+
+	&__sentTo {
+		grid-column: 1/-1;
+		grid-row: 4/4;
+
+		@include media('>=tablet') {
+			grid-column: 3/-1;
+			grid-row: 3/3;
+		}
+
+		h4 {
+			margin: 1rem 0;
+			font-size: 0.9375rem;
+			letter-spacing: -0.02rem;
+
+			@include media('>=tablet') {
+				font-size: 0.9rem;
+			}
+
+			@include media('>=desktop') {
+				font-size: 1rem;
+			}
+		}
+	}
+
+	&__itemList {
+		grid-column: 1/-1;
+
+		@include media('>=tablet') {
+			grid-row: 4/4;
+		}
+	}
+
+	&-itemsWrapper {
+		padding: 1rem 1.25rem;
+		background: #f9fafe;
+		border-radius: 8px;
+
+		@include media('>=tablet') {
+			grid-template-columns: repeat(4, 1fr);
+			margin-top: 2rem;
+			display: grid;
+		}
+
+		@include media('>=laptop') {
+			padding: 1rem 2rem;
+			margin-top: 2rem;
+		}
+	}
+
+	&__total {
+		grid-column: 1/-1;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0.75rem 1.25rem;
+		color: white;
+		background: #373b53;
+		border-radius: 0 0 8px 8px;
+
+		@include media('>=desktop') {
+			padding: 1rem 2rem;
+		}
+
+		p {
+			font-size: 0.75rem;
+			letter-spacing: -0.02rem;
+			@include media('>=desktop') {
+				font-size: 0.9rem;
+			}
+		}
+
+		h2 {
+			font-size: 1.1rem;
+			letter-spacing: -0.02rem;
+			@include media('>=desktop') {
+				font-size: 1.1rem;
+			}
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		justify-content: center;
+		justify-self: center;
+		margin: 2rem 0 0;
+		padding: 1rem 0;
+		gap: 0.75rem;
+		background: rgb(255, 255, 255);
+		border-radius: 8px;
+		width: 110%;
+
+		@include media('>=tablet') {
+			align-items: center;
+			width: 100%;
+			margin-top: 1rem;
+			padding-right: 1rem;
+			grid-column: 2/-1;
+			grid-row: 2/2;
+			border-radius: 0 8px 8px 0;
+			box-shadow: 8px 5px 15px -10px rgb(0, 0, 0, 0.15);
+		}
+
+		@include media('>=laptop') {
+			height: 80px;
+
+			padding: 1.25rem 0;
+			margin: 0;
+			border-radius: 8px;
+			box-shadow: 0 6px 15px 0px rgb(0, 0, 0, 0.15);
+		}
+
+		@include media('>=desktop') {
+			height: 95px;
+			padding: 1.5rem 0;
+		}
+
+		&-edit {
+			display: flex;
+			align-items: center;
+			padding: 1.1rem 1.25rem 1rem;
+			color: var(--blue-lavender);
+			background: rgba(249, 250, 254, 1);
+			font-weight: bold;
+			font-size: 0.75rem;
+			letter-spacing: -0.02rem;
+			border: none;
+			border-radius: 24px;
+
+			@include media('>=laptop') {
+				&:hover {
+					background: var(--blue-light);
+				}
+			}
+
+			@include media('>=desktop') {
+				padding: 1.1rem 1.25rem 1rem;
+				font-size: 0.9rem;
+			}
+		}
+
+		&-delete {
+			display: flex;
+			align-items: center;
+			padding: 1.1rem 1.25rem 1rem;
+			color: rgb(255, 255, 255);
+			background: var(--red-pink);
+			font-weight: bold;
+			font-size: 0.75rem;
+			letter-spacing: -0.02rem;
+			border: none;
+			border-radius: 24px;
+
+			@include media('>=laptop') {
+				&:hover {
+					background: var(--red-pink-light);
+				}
+			}
+
+			@include media('>=desktop') {
+				font-size: 0.9rem;
+			}
+		}
+
+		&-paid {
+			display: flex;
+			align-items: center;
+			padding: 1.1rem 1.8rem 1rem;
+			color: rgb(255, 255, 255);
+			background: var(--violet);
+			font-weight: bold;
+			font-size: 0.75rem;
+			letter-spacing: -0.02rem;
+			border: none;
+			border-radius: 24px;
+
+			@include media('>=laptop') {
+				&:hover {
+					background: var(--violet-light);
+				}
+			}
+
+			@include media('>=desktop') {
+				font-size: 0.9rem;
+			}
+		}
+	}
+}

@@ -1,0 +1,21 @@
+@use '../base/breakpoints' as *;
+
+.invoice__mobile-nav {
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+
+	@include media('>=laptop') {
+		cursor: pointer;
+	}
+
+	p {
+		font-weight: bold;
+		font-size: 0.75rem;
+		letter-spacing: 0.015rem;
+
+		@include media('>=desktop') {
+			font-size: 0.9rem;
+		}
+	}
+}

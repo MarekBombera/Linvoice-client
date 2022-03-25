@@ -1,0 +1,105 @@
+@use '../base/breakpoints' as *;
+
+.deleteModal {
+	position: absolute;
+	display: grid;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 89%;
+	padding: 2rem;
+	background: white;
+	border-radius: 8px;
+	z-index: 999;
+
+	@include media('>=tablet') {
+		width: 50%;
+	}
+
+	@include media('>=laptop') {
+		width: 27%;
+		left: 53%;
+	}
+
+	@include media('>=desktop') {
+		width: 29%;
+		padding: 3.5rem;
+	}
+
+	h3 {
+		margin: 0;
+		font-size: 1.25rem;
+		letter-spacing: -0.025rem;
+
+		@include media('>=desktop') {
+			font-size: 1.5rem;
+		}
+	}
+
+	span {
+		font-weight: bold;
+	}
+
+	p {
+		font-size: 0.75rem;
+		letter-spacing: -0.015rem;
+		color: var(--blue-gray);
+
+		@include media('>=desktop') {
+			font-size: 1rem;
+		}
+	}
+
+	&__buttons {
+		display: flex;
+		margin-top: 1.25rem;
+		gap: 1rem;
+		justify-self: flex-end;
+	}
+
+	&-cancel {
+		display: flex;
+		justify-content: center;
+		padding: 1.1rem 1.5rem 1rem;
+		font-weight: bold;
+		font-size: 0.75rem;
+		letter-spacing: -0.02rem;
+		color: var(--blue-lavender);
+		background: var(--background-light);
+		border: none;
+		border-radius: 24px;
+
+		@include media('>=laptop') {
+			&:hover {
+				background: var(--blue-light);
+			}
+		}
+
+		@include media('>=desktop') {
+			padding: 1.4rem 2rem 1.3rem;
+			font-size: 1rem;
+		}
+	}
+
+	&-delete {
+		padding: 1.1rem 1.5rem 1rem;
+		font-weight: bold;
+		font-size: 0.75rem;
+		letter-spacing: -0.02rem;
+		color: rgb(255, 255, 255);
+		background: var(--red-pink);
+		border: none;
+		border-radius: 24px;
+
+		@include media('>=laptop') {
+			&:hover {
+				background: var(--red-pink-light);
+			}
+		}
+
+		@include media('>=desktop') {
+			padding: 1.4rem 2rem 1.3rem;
+			font-size: 1rem;
+		}
+	}
+}
