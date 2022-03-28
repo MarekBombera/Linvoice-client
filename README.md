@@ -16,10 +16,10 @@ Linvoice is a full-stack SPA where users can create, update and delete invoices.
 ## Stack
 
 - Front-end: React, Redux, Typescript, Sass
-- Back-end: Node JS, Express, MySQL, Docker
+- Back-end: Node JS, Express, MySQL
 - Testing: Jest, React Testing Library
 - API: Google OAuth 2.0
-- Cloud: AWS (EC2, RDS)
+- Cloud: AWS (RDS), Heroku
 
 ## How app works
 
@@ -43,7 +43,7 @@ All data passed to query the database is escaped to prevent SQL injection.
 
 ### Cloud
 
-The server is dockerized and deployed to AWS - EC2.
+The server is deployed on Heroku.
 
 MySQL database is also deployed in AWS - RDS.
 
@@ -54,6 +54,7 @@ The reason why I made an app for invoices was to learn mainly these few things.
 - How to handle forms with a lot of inputs and different input types
 - Back-end technologies like Express, SQL database, Docker
 - How to tie everything together to make a full-stack app
+(I learned docker and used it initially when deploying on AWS EC2 but in the end Heroku won with easy and free SSL/TLS)
 
 While testing I encountered a Formik bug https://github.com/jaredpalmer/formik/issues/1543 that just spams the whole console even if tests are passing.
 
